@@ -1,12 +1,15 @@
-#include <SFML/Graphics.hpp>
 #include <iostream>
+
+#include <SFML/Graphics.hpp>
+
+#include "settings.hpp"
 
 using namespace sf;
 using namespace std;
 
 int main()
 {
-	RenderWindow window(VideoMode({200, 200}), "Space Shop");
+	RenderWindow window(VideoMode({WINDOW_WIDTH, WINDOW_HEIGHT}), WINDOW_TITLE);
 	CircleShape shape(100.f);
 	shape.setFillColor(Color::Green);
 
@@ -14,9 +17,10 @@ int main()
 	{
 		while (const optional event = window.pollEvent())
 		{
-			if (event -> is < Event::Closed>())
+			if (event -> is < Event::Closed>()) {
 				window.close();
 				cout << "Closing Window..." << endl;
+			}
 		}
 
 		window.clear();
